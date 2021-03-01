@@ -7,9 +7,11 @@ class Contact
 {
     public :
     Contact();
+	void getFirstName();
+	void setFirstName();
 
     //attributs
-    private : 
+    private :
     int    nb_contact;
     std::string first_name;
     std::string last_name;
