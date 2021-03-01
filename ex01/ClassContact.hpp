@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+#include <cstring>
 
 
 class Contact
@@ -8,7 +10,7 @@ class Contact
 
     //attributs
     private : 
-
+    int    nb_contact;
     std::string first_name;
     std::string last_name;
     std::string nickname;
