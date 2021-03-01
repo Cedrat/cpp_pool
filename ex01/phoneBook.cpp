@@ -13,7 +13,8 @@ int main()
             break;
         else if (command == "ADD")
         {
-            Contact un;
+            std::cout << "What is the first name ? " ; std::cin>>first_name;
+            Contact first_name;
             i++;
         }
     }
