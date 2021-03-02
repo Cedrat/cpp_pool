@@ -23,7 +23,7 @@ void write_attributes(Contact contact)
     std::string str;
 
     word = contact.getFirstName();
-    str  = format(word);
+    str  += format(word);
     word = contact.getLastName();
     str += format(word);
     word = contact.getNickname();
