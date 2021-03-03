@@ -1,7 +1,10 @@
 #include "ClassContact.hpp"
 
+int Contact::_cpt = 0;
 Contact::Contact()
 {
+	_index = std::to_string(_cpt);
+	_cpt = _cpt + 1;
 }
 
 std::string Contact::getFirstName(void)
@@ -19,6 +22,10 @@ std::string Contact::getNickname(void)
 	return (_nickname);
 }
 
+std::string Contact::getIndex(void)
+{
+	return (_index);
+}
 void Contact::setAllAttributes(void)
 {
 	std::cout << "What is the first name ? " << std::endl ;
@@ -43,4 +50,19 @@ void Contact::setAllAttributes(void)
 	std::getline(std::cin, _underwear_color);
     std::cout << "What is the darkest secret? " << std::endl ;
 	std::getline(std::cin, _darkest_secret);
+}
+
+void Contact::GetAllAttributes(void)
+{
+	std::cout << "The first name is : " << _first_name << std::endl;
+	std::cout << "The last name is : " << _last_name << std::endl;
+	std::cout << "The nickname is : " << _nickname << std::endl;
+	std::cout << "The login is : " << _login << std::endl;
+	std::cout << "The postal address is : " << _postal_address << std::endl;
+	std::cout << "The email address is : " << _email_address << std::endl;
+	std::cout << "The phone number is : " << _phone_number << std::endl;
+	std::cout << "The birthday date is : " << _birthday_date << std::endl;
+	std::cout << "The favorite meal is : " << _favorite_meal << std::endl;
+	std::cout << "The underwear color is : " << _underwear_color << std::endl;
+	std::cout << "The darkest secret is : " << _darkest_secret << std::endl;
 }

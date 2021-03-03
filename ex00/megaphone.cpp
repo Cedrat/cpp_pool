@@ -16,6 +16,7 @@ void capslock(char *str)
 int main(int argc, char **argv)
 {
     int i;
+    std::string str;
 
     i = 1;
     if (argc == 1)
@@ -26,8 +27,9 @@ int main(int argc, char **argv)
     while(argv[i])
     {
         capslock(argv[i]);
-        std::cout << argv[i];
+        str += argv[i];
         i++;
     }
+    std::cout << str << std::endl;
     return (1);
 }
