@@ -1,0 +1,2 @@
+#ifndef ZOMBIEEVENT_HPP
+# define ZOMBIEEVENT_HPP
