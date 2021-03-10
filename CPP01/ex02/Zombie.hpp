@@ -3,10 +3,12 @@
 
 #include <string>
 #include <iostream>
+
 class Zombie
 {
     public :
     Zombie();
+    ~Zombie();
     void advert(void);
     void setType(std::string type);
     void setName(std::string name);
@@ -15,5 +17,8 @@ class Zombie
     std ::string    _name;
     std ::string    _type;
 };
+
+std::string randomName(void);
+Zombie *randomChump(std::string type);
 
 #endif

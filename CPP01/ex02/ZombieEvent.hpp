@@ -6,11 +6,12 @@
 class ZombieEvent
 {
     public :
-        ZombieEvent(void); 
+        ZombieEvent(std::string type); 
         void setZombieType(std::string type);
+        std::string getZombieType(void);
         Zombie *newZombie(std::string name);
 
     private :
-        static std::string _typeOfZombies;
+        std::string _typeOfZombies;
 };
 #endif
