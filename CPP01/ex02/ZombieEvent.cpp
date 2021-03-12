@@ -6,6 +6,10 @@ ZombieEvent::ZombieEvent(std::string type)
     this->_typeOfZombies = type;
 }
 
+ZombieEvent::~ZombieEvent()
+{
+}
+
 void ZombieEvent::setZombieType(std::string type)
 {
     _typeOfZombies = type;

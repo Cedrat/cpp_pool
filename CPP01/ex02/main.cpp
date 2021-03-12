@@ -9,11 +9,10 @@ std::string randomName(void)
 
     alpha_num = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPADFGHJKLZVBNM";
     name = "";
-    i = rand() % 10 + 3;
-    std::printf("%d\n", i);
+    i = std::rand() % 10 + 3;
     while (i > 0)
     {
-        name += alpha_num[rand() % 62];
+        name += alpha_num[std::rand() % 62];
         i--; 
     }
     return (name);
