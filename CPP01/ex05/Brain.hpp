@@ -10,7 +10,7 @@ class Brain
 {
     public :
     Brain();
-    std::string identify();
+    std::string identify() const;
 
     private : 
     std::string _brainAddress;

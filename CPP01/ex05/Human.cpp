@@ -3,16 +3,19 @@
 
 Human::Human()
 {
-    Brain brain;
-    this->_brain = &brain;
-}
+    const Brain& brain = this->_brain;
 
-Brain &Human::getBrain(void)
-{
-    std::cout << "in get brain " <<_brain->identify() << std::endl ;
-    return (*_brain);
+    std::cout << "YA" << std::endl;
 }
-std::string Human::identify()
+// void Human::setBrain(Brain const brain)
+// {
+//     this->_brain = brain;
+// }
+const Brain& Human::getBrain(void) const
 {
-    return (_brain->identify());
+    return (_brain);
+}
+std::string Human::identify() const
+{
+    return (_brain.identify());
 }

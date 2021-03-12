@@ -7,11 +7,12 @@ class Human
 {
     public :
     Human();
-    std::string identify();
-    Brain &getBrain();
+    std::string identify() const;
+    void setBrain(Brain const brain);
+    const Brain& getBrain() const;
 
     private :
-    Brain *_brain;
+    Brain const _brain;
 };
 
 
