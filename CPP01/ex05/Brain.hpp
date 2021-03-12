@@ -11,9 +11,10 @@ class Brain
     public :
     Brain();
     std::string identify() const;
+    std::string getCells(void) const;
 
     private : 
-    std::string _brainAddress;
+    std::string _cells;
 };
 
 #endif
