@@ -8,9 +8,12 @@ class Pony
     public :
     Pony();
     ~Pony();
+    
     void ponyOfZorro();
     void ponyOfLink();
     void ponyOnTheHeap();
+    void jump() const;
+    void describe() const;
 
     private :
     std::string     _name;

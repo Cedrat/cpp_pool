@@ -24,3 +24,14 @@ void Pony::ponyOfLink()
     this->_mane = "white";
     this->_speed = "90";
 }
+
+void Pony::jump() const
+{
+    std::cout << this->_name << " jumps over a burning building !" << std::endl;
+}
+
+void Pony::describe() const
+{
+    std::cout << this->_name << " is a beautifull " << this->_color << "pony with a " << this->_mane 
+    << " mane and this poney reach the incredible speed of " << this->_speed << " miles per hours !" << std::endl; 
+}
