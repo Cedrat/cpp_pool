@@ -16,6 +16,7 @@ void ponyOfTheHeap()
     Epona->describe();
     Epona->jump();
     Epona->~Pony();
+    delete Epona;
 }
 
 int main()
