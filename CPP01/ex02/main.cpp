@@ -9,11 +9,11 @@ std::string randomName(void)
 
     alpha_num = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPADFGHJKLZVBNM";
     name = "";
-    i = (std::rand() % 10) + 3;
+    i = (rand() % 10) + 3;
     while (i > 0)
     {
-        name += alpha_num[std::rand() % 62];
-        i--; 
+        name += alpha_num[rand() % 62];
+        i--;
     }
     return (name);
 }
@@ -21,7 +21,7 @@ std::string randomName(void)
 
 int main()
 {
-    std::srand(std::time(0));
+    srand(time(0));
 
     ZombieEvent alcoholic("alcoholic");
     Zombie *Gerard = alcoholic.newZombie("Gerard");

@@ -9,7 +9,7 @@ int file_to_modify(char *file, std::string *file_to_modif)
     std::ifstream   ifs;
 
     ifs.open(file);
-    if (ifs == NULL)
+    if ((ifs.rdstate()) != 0)
     {
         std::cout << "Error :\nFile doesn't exist" << std::endl;
         return (0);
@@ -48,9 +48,9 @@ void write_in_file(std::string filename, std::string file_to_write)
     std::ofstream file;
 
     filename = filename + ".replace";
-    file.open(filename);
+    file.open(filename.c_str());
 
-    file << file_to_write;  
+    file << file_to_write;
     file.close();
 }
 
