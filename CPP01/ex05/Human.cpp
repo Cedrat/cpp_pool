@@ -3,7 +3,6 @@
 
 Human::Human()
 {
-    const Brain& brain = this->_brain;
 }
 
 const Brain& Human::getBrain(void) const

@@ -12,7 +12,7 @@ Pony::~Pony()
 void Pony::ponyOfZorro()
 {
     this->_name = "Tornade";
-    this->_color = "black";
+    this->_color = "black"; 
     this->_mane = "black";
     this->_speed = "120";
 }
@@ -32,6 +32,6 @@ void Pony::jump() const
 
 void Pony::describe() const
 {
-    std::cout << this->_name << " is a beautifull " << this->_color << "pony with a " << this->_mane 
+    std::cout << this->_name << " is a beautifull " << this->_color << " pony with a " << this->_mane 
     << " mane and this poney reach the incredible speed of " << this->_speed << " miles per hours !" << std::endl; 
 }
