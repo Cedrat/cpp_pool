@@ -90,6 +90,9 @@ void ScavTrap::challengeNewcomer(void)
         while (shifumi() < 2)
             std::cout << "You don't win, try again !" << std::endl;
     }
-    // else if (index == "3")
-    //     head_or_tail();
+    else if (index == "3")
+    {
+        head_or_tail();
+        std::cout << "Nice game " << _name << " !" << std::endl;
+    }
 }
