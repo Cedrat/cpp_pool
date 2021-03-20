@@ -15,7 +15,6 @@ void ponyOfTheHeap()
     Epona->ponyOfLink();
     Epona->describe();
     Epona->jump();
-    Epona->~Pony();
     delete Epona;
 }
 
