@@ -11,7 +11,6 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100 , 100 , 1, 3
      std::cout << "(Sobbing) I just want to be loved!" << std::endl;
  }
 
-
 void    FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
     std::string skill[5] = {"Hyperion Punch", "Death Machine", "Element of Surprise", "It's a Trap... Card",

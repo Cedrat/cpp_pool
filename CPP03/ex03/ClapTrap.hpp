@@ -20,11 +20,13 @@ class ClapTrap
         public : 
             ClapTrap(std::string name, unsigned int, unsigned int, unsigned int, 
             unsigned int, unsigned int, unsigned int, unsigned int, unsigned int);
+            ClapTrap(std::string name);
             ~ClapTrap();
-            void    rangedAttack(std::string const & target) const;
-            void    meleeAttack(std::string const & target) const;
-            void    takeDamage(unsigned int amount);
-            void    beRepaired(unsigned int amount);
+            std::string getName() const;
+            void        rangedAttack(std::string const & target) const;
+            void        meleeAttack(std::string const & target) const;
+            void        takeDamage(unsigned int amount);
+            void        beRepaired(unsigned int amount);
 };
 
 #endif

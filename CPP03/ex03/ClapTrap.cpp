@@ -1,5 +1,9 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(std::string name) : _name(name)
+{
+   std::cout << "\033[3mOne Basic ClapTrap was created\033[0m" << std::endl; 
+}
 
 ClapTrap::ClapTrap(std::string name, unsigned int _hit_points, unsigned int _max_hit_points, unsigned int _energy_points, unsigned int _max_energy_points, unsigned int _level, unsigned int _melee_attack_damage, unsigned int _ranged_attack_damage, unsigned int _armor_damage_reduction) : _name(name) , _hit_points(_hit_points), 
 _max_hit_points(_max_hit_points) , _energy_points(_energy_points), _max_energy_points(_max_energy_points),
@@ -14,6 +18,10 @@ _armor_damage_reduction(_armor_damage_reduction)
      std::cout << "\033[3mOne ClapTrap was destroyed\033[0m" << std::endl;
  }
 
+std::string ClapTrap::getName() const
+{
+    return (this->_name);
+}
 void ClapTrap::rangedAttack(std::string const & target) const
 {
     if (_hit_points == 0)
