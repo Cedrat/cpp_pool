@@ -42,7 +42,7 @@ void    Fixed::setRawBits(int const raw)
 
 void    Fixed::setRawBits(float const raw)
 {
-    this->_value = raw * pow_of_two(_nb_bits);
+    this->_value = roundf(raw * pow_of_two(_nb_bits));
 }
 
 int Fixed::toInt(void) const
