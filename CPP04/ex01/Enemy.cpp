@@ -25,7 +25,9 @@ void Enemy::takeDamage(int damage)
 	if (damage < 0)
 		return;
 	if (damage >= this->_hp)
+	{
 		this->_hp = 0;
+	}
 	else
 		this->_hp = this->_hp - damage;
 }

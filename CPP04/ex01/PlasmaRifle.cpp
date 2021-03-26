@@ -7,7 +7,6 @@ PlasmaRifle::PlasmaRifle(void) : AWeapon("Plasma Rifle", 5, 21)
 
 PlasmaRifle::~PlasmaRifle()
 {
-
 }
 
 void	PlasmaRifle::attack() const
