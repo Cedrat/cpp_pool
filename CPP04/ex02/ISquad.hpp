@@ -2,7 +2,7 @@
 # define ISQUAD_HPP
 
 #include <string>
-#include "ISpaceMarine"
+#include "ISpaceMarine.hpp"
 
 class ISquad
 {

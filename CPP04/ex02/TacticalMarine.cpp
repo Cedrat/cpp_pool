@@ -21,12 +21,8 @@ TacticalMarine::~TacticalMarine()
 
 TacticalMarine *TacticalMarine::clone() const
 {
-	return (this);
-}
-
-TacticalMarine &TacticalMarine::operator=(TacticalMarine const & rhs)
-{
-	return (*this);
+	TacticalMarine * tactical_marine = new TacticalMarine;
+	return (tactical_marine);
 }
 
 void TacticalMarine::battleCry() const

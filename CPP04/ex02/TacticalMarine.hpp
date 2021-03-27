@@ -16,7 +16,6 @@ class TacticalMarine : virtual public ISpaceMarine
 		virtual void rangedAttack() const;
 		virtual void meleeAttack() const;
 
-		TacticalMarine	&operator=(TacticalMarine const & rhs);
 };
 
 #endif
