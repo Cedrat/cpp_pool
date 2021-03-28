@@ -4,12 +4,21 @@
 
 Squad::Squad(void) : _count(0)
 {
-	
+	std::cout << "Squad created !" << std::endl;
 }
 
 Squad::Squad(Squad const & src)
-{
-	*this = src;
+{	
+	int i;
+	
+	std::cout << "Squad created !" << std::endl;
+	i = 0;
+	_ism = new ISpaceMarine*[src.getCount() + 1];
+	while (i < src.getCount())
+	{
+		_ism[i] = src.getUnit(i);
+		i++;
+	}
 }
 
 Squad::~Squad()
@@ -22,7 +31,8 @@ Squad::~Squad()
 		delete _ism[i];
 		i++;
 	}
-	delete [] _ism;
+	if (i != 0)
+		delete [] _ism;
 }
 
 int	Squad::push(ISpaceMarine* ism)
@@ -33,14 +43,13 @@ int	Squad::push(ISpaceMarine* ism)
 	i = 0;
 	if (_count == 0)
 	{
-		_ism = new ISpaceMarine*[0];
+		_ism = new ISpaceMarine*[1];
 		_ism[0] = ism;
-		_ism[0]->battleCry();
 		_count += 1;
 	}
 	else
 	{
-		new_ism = new ISpaceMarine*[_count];
+		new_ism = new ISpaceMarine*[_count + 1];
 		while (i < _count)
 		{
 			new_ism[i] = _ism[i];
@@ -48,7 +57,7 @@ int	Squad::push(ISpaceMarine* ism)
 		}
 		new_ism[i] = ism;
 		delete [] _ism;
-		_ism = new ISpaceMarine*[_count];
+		_ism = new ISpaceMarine*[_count + 1];
 		i = 0;
 		while (i <= _count)
 		{
@@ -57,7 +66,6 @@ int	Squad::push(ISpaceMarine* ism)
 		}
 		delete [] new_ism;
 		_count++;
-		std::cout << "Segfault" << std::endl;
 	}
 	return (_count);
 }
@@ -74,7 +82,23 @@ ISpaceMarine*	Squad::getUnit(int nb) const
 
 Squad &Squad::operator=(Squad const & rhs)
 {
-	this->_count = rhs.getCount();
+	int i;
+
+	i = 0;
+	std::cout << " Vraiment devant" << std::endl;
+	if (_count != 0)
+	{
+		delete [] _ism;
+	}
+	_ism = new ISpaceMarine*[rhs.getCount() + 1];
+	std::cout << "devant" << std::endl;
+	while (i < rhs.getCount())
+	{
+		_ism[i] = rhs.getUnit(i)->clone();
+		std::cout << i << std::endl;
+		i++;
+	}
+	_count = rhs.getCount();
 	return *this;
 }
 

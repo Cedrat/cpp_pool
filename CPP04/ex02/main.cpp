@@ -9,22 +9,22 @@
 int main(void)
 {
     ISpaceMarine* bob = new TacticalMarine;
-    ISquad *vlc = new Squad;
+    ISpaceMarine* jim = new AssaultTerminator;
+    ISpaceMarine* hardi = bob->clone();
+    ISpaceMarine* enemy = jim->clone();
+    ISquad* vlc = new Squad;
     vlc->push(bob);
-    ISpaceMarine* dylan = bob->clone();
-    //ISpaceMarine* joseph = new AssaultTerminator;
-   //vlc->push(joseph);
-    vlc->push(dylan);
-    std::cout << vlc->getCount() << std::endl;
-    vlc->getUnit(0)->battleCry();
-    //vlc->getUnit(1)->battleCry();
-    //vlc->getUnit(2)->battleCry();
-    // ISpaceMarine* cur = vlc->getUnit(0);
-    // cur->battleCry();
-    // bob->battleCry();
-    // ISpaceMarine* dylan = bob->clone();
-    // delete dylan;
-    //delete joseph;
+    vlc->push(jim);
+    vlc->push(hardi);
+    vlc->push(enemy);
+    std::cout << "We had " << vlc->getCount() << " members in this squad." << std::endl;
+    for (int i = 0; i < vlc->getCount(); ++i)
+    {
+        ISpaceMarine* cur = vlc->getUnit(i);
+        cur->battleCry();
+        cur->rangedAttack();
+        cur->meleeAttack();
+    }
     delete vlc;
-    system("leaks a.out");
+    return 0;
 }

@@ -20,7 +20,8 @@ class Squad : virtual public ISquad
 		virtual int	getCount(void) const;
 		virtual ISpaceMarine*	getUnit(int) const;
 		virtual int	push(ISpaceMarine*);
-		Squad	&operator=(Squad const & rhs);
+		
+		virtual Squad	&operator=(Squad const & rhs);
 };
 
 #endif
