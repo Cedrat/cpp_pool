@@ -2,7 +2,7 @@
 #include "AssaultTerminator.hpp"
 #include "Squad.hpp"
 
-#include <string> 
+#include <string>
 #include <iostream>
 
 
@@ -13,6 +13,13 @@ int main(void)
     ISpaceMarine* hardi = bob->clone();
     ISpaceMarine* enemy = jim->clone();
     ISquad* vlc = new Squad;
+	ISquad* squad_1 = new Squad;
+	squad_1->push(bob);
+	ISquad* squad_2 = new Squad(*squad_1);
+	std::cout << squad_2->getCount() << std::endl;
+	squad_2->push(enemy);
+	squad_1 = squad_2;
+	std::cout << squad_1->getCount() << std::endl;
     vlc->push(bob);
     vlc->push(jim);
     vlc->push(hardi);

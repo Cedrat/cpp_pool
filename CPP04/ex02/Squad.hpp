@@ -12,16 +12,16 @@ class Squad : virtual public ISquad
 		int _count;
 		ISpaceMarine **_ism;
 
-	public : 
+	public :
 		Squad(void);
-		Squad(Squad const & src);
+		Squad(ISquad const & src);
 		~Squad();
 
 		virtual int	getCount(void) const;
 		virtual ISpaceMarine*	getUnit(int) const;
 		virtual int	push(ISpaceMarine*);
-		
-		virtual Squad	&operator=(Squad const & rhs);
+
+		ISquad	&operator=(ISquad const & rhs);
 };
 
 #endif

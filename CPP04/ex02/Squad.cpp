@@ -7,10 +7,10 @@ Squad::Squad(void) : _count(0)
 	std::cout << "Squad created !" << std::endl;
 }
 
-Squad::Squad(Squad const & src)
-{	
+Squad::Squad(ISquad const & src)
+{
 	int i;
-	
+
 	std::cout << "Squad created !" << std::endl;
 	i = 0;
 	_ism = new ISpaceMarine*[src.getCount() + 1];
@@ -19,6 +19,7 @@ Squad::Squad(Squad const & src)
 		_ism[i] = src.getUnit(i);
 		i++;
 	}
+	_count = src.getCount();
 }
 
 Squad::~Squad()
@@ -80,7 +81,7 @@ ISpaceMarine*	Squad::getUnit(int nb) const
 	return (_ism[nb]);
 }
 
-Squad &Squad::operator=(Squad const & rhs)
+ISquad &Squad::operator=(ISquad const & rhs)
 {
 	int i;
 
@@ -101,4 +102,3 @@ Squad &Squad::operator=(Squad const & rhs)
 	_count = rhs.getCount();
 	return *this;
 }
-

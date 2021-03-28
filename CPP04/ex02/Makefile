@@ -1,9 +1,9 @@
 NAME = a.out
-SRCS = main.cpp TacticalMarine.cpp Squad.cpp AssaultTerminator.cpp 
+SRCS = main.cpp TacticalMarine.cpp Squad.cpp AssaultTerminator.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
 
 RM = rm -f
 
@@ -12,7 +12,7 @@ all : 		${NAME}
 ${NAME}:	${OBJS}
 			clang++ -std=c++98 -o ${NAME} ${CFLAGS} ${SRCS}
 
-clean :		
+clean :
 			${RM} ${OBJS} ${BONUS}
 
 fclean :	clean
