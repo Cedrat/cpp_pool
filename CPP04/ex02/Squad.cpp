@@ -7,19 +7,21 @@ Squad::Squad(void) : _count(0)
 	std::cout << "Squad created !" << std::endl;
 }
 
-Squad::Squad(ISquad const & src)
+Squad::Squad(ISquad const & src) : _count(0)
 {
-	int i;
 
-	std::cout << "Squad created !" << std::endl;
-	i = 0;
-	_ism = new ISpaceMarine*[src.getCount() + 1];
-	while (i < src.getCount())
-	{
-		_ism[i] = src.getUnit(i);
-		i++;
-	}
-	_count = src.getCount();
+	*this = src;
+	// int i;
+
+	// std::cout << "Squad created !" << std::endl;
+	// i = 0;
+	// _ism = new ISpaceMarine*[src.getCount() + 1];
+	// _count = src.getCount();
+	// while (i < src.getCount())
+	// {
+	// 	_ism[i] = src.getUnit(i);
+	// 	i++;
+	// }
 }
 
 Squad::~Squad()
@@ -86,17 +88,20 @@ ISquad &Squad::operator=(ISquad const & rhs)
 	int i;
 
 	i = 0;
-	std::cout << " Vraiment devant" << std::endl;
+	while (i < _count)
+	{
+		delete this->getUnit(i);
+		i++;
+	}
 	if (_count != 0)
 	{
 		delete [] _ism;
 	}
+	i = 0;
 	_ism = new ISpaceMarine*[rhs.getCount() + 1];
-	std::cout << "devant" << std::endl;
 	while (i < rhs.getCount())
 	{
-		_ism[i] = rhs.getUnit(i)->clone();
-		std::cout << i << std::endl;
+		this->push(rhs.getUnit(i));
 		i++;
 	}
 	_count = rhs.getCount();
