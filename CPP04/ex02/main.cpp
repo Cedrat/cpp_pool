@@ -45,5 +45,7 @@ int main(void)
         cur->meleeAttack();
     }
     delete squad_0;
+    delete squad_1;
+    delete squad_2;
     return 0;
 }

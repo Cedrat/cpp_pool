@@ -35,7 +35,8 @@ Squad::~Squad()
 		i++;
 	}
 	if (i != 0)
-		delete [] _ism;
+	 	delete [] _ism;
+	_count = 0;
 }
 
 int	Squad::push(ISpaceMarine* ism)
@@ -91,6 +92,7 @@ ISquad &Squad::operator=(ISquad const & rhs)
 	while (i < _count)
 	{
 		delete this->getUnit(i);
+		_ism[i] = NULL;
 		i++;
 	}
 	if (_count != 0)
@@ -101,7 +103,7 @@ ISquad &Squad::operator=(ISquad const & rhs)
 	_ism = new ISpaceMarine*[rhs.getCount() + 1];
 	while (i < rhs.getCount())
 	{
-		this->push(rhs.getUnit(i));
+		_ism[i] = rhs.getUnit(i)->clone();
 		i++;
 	}
 	_count = rhs.getCount();
