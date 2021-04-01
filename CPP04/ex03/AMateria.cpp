@@ -25,9 +25,9 @@ unsigned int		AMateria::getXP() const
 	return (this->_xp);
 }
 
-void		AMateria::clone() const
+void 		AMateria::giveXP()
 {
-	
+	_xp += 10;
 }
 
 AMateria &AMateria::operator=(AMateria const & rhs)

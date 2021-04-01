@@ -2,6 +2,10 @@
 # define AMATERIA_HPP
 
 #include <string>
+#include "Character.hpp"
+
+class ICharacter;
+class Character;
 
 class AMateria
 {
@@ -16,12 +20,13 @@ class AMateria
 
 		std::string const &	getType() const;
 		unsigned int		getXP() const;
+		void				giveXP();
 
 
 		virtual AMateria*	clone() const = 0;
 		virtual void		use(ICharacter& target);
 
-		AMateria	&operator=(AMateria const & rhs);
+		virtual AMateria	&operator=(AMateria const & rhs);
 };
 
 #endif
