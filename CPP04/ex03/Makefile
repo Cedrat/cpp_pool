@@ -1,9 +1,9 @@
 NAME = a.out
-SRCS = main.cpp AMateria.cpp Ice.cpp Character.cpp
+SRCS = main.cpp AMateria.cpp Ice.cpp Character.cpp Cure.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 RM = rm -f
 

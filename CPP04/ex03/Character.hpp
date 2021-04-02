@@ -19,7 +19,7 @@ class ICharacter
 class Character : public ICharacter
 {
 	private : 
-		AMateria *_bag[3];
+		AMateria *_bag[4];
 		std::string _name;
 
 	public : 

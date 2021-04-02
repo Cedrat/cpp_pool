@@ -10,23 +10,23 @@ class Character;
 class AMateria
 {
 	protected :
-		std::string _type;
-		int			_xp;
+		std::string 			_type;
+		unsigned int			_xp;
 
 	public : 
 		AMateria(std::string const & type);
 		AMateria(AMateria const & src);
-		~AMateria();
+		virtual ~AMateria();
 
-		std::string const &	getType() const;
-		unsigned int		getXP() const;
-		void				giveXP();
+		std::string const &		getType() const;
+		unsigned int const &	getXP() const;
+		void			giveXP();
 
 
 		virtual AMateria*	clone() const = 0;
-		virtual void		use(ICharacter& target);
+		virtual void		use(ICharacter& target) = 0;
 
-		virtual AMateria	&operator=(AMateria const & rhs);
+		AMateria	&operator=(AMateria const & rhs);
 };
 
 #endif
