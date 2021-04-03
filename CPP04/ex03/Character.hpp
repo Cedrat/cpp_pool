@@ -16,7 +16,7 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-class Character : public ICharacter
+class Character : virtual public ICharacter
 {
 	private : 
 		AMateria *_bag[4];
@@ -32,7 +32,7 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
-		Character	&operator=(Character const & rhs);
+		virtual Character	&operator=(Character const & rhs);
 };
 
 #endif

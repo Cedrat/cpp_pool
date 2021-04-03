@@ -1,4 +1,6 @@
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 MateriaSource::MateriaSource(void)
 {
@@ -24,7 +26,18 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* materia)
 {
+	int i;
 
+	i = 0;
+	while(i < 4)
+	{
+		if (_source[i] == 0)
+		{
+			_source[i] = materia->clone();
+			return ;
+		}
+		i++;
+	}
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type)
@@ -34,15 +47,19 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 	i = 0;
 	while (i < 4)
 	{
-		if (_source[i] && _source[i].getType() == "ice")
+		if (_source[i] && _source[i]->getType() == "ice" && "ice" == type)
 		{
-			AMateria *copy = new Ice(_source[i]);
+			AMateria *copy = new Ice(*_source[i]);
+			return copy;
 		}
-		else if (_source[i] && _source[i].getType() == "cure")
+		else if (_source[i] && _source[i]->getType() == "cure" && "cure" == type)
 		{
-			AMateria *copy = new Cure(_source[i]);
+			AMateria *copy = new Cure(*_source[i]);
+			return copy;
 		}
+		i++;
 	}
+	return (NULL);
 }
 
 AMateria *const & MateriaSource::getSource() const
@@ -52,7 +69,18 @@ AMateria *const & MateriaSource::getSource() const
 
 MateriaSource &MateriaSource::operator=(MateriaSource const & rhs)
 {
-	this->_source = rhs.getSource();
+	int i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (this->_source[i] != 0)
+		{
+			delete this->_source[i];
+		}
+		i++;
+	}
+	*this->_source = rhs.getSource();
 	return *this;
 }
 

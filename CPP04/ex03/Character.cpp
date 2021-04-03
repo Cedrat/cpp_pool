@@ -17,12 +17,24 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(Character const & src)
 {
-	*this = src;
+	*this->_bag = *src._bag;
+	this->_name = src._name;
 }
 
 Character::~Character()
 {
+	int i;
 
+	i = 0;
+	while (i < 4)
+	{
+		if (this->_bag[i] != 0)
+		{
+			delete this->_bag[i];
+			this->_bag[i] = 0;
+		}
+		i++;
+	}
 }
 
 std::string const &	Character::getName() const
@@ -61,10 +73,11 @@ void Character::equip(AMateria *m)
 		{
 			_bag[i] = m;
 			std::cout << "Materia of type " << BLUE << m->getType() << RESET << " equiped with success on slot " << i << std::endl;
-			break;
+			return;
 		}
 		i++;
-	}	
+	}
+	std::cout << "Bag already full, please unequip before." << std::endl;
 }
 
 void Character::unequip(int idx)
@@ -85,9 +98,23 @@ void Character::unequip(int idx)
 	}
 }
 
+
 Character &Character::operator=(Character const & rhs)
 {
+	int i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (this->_bag[i] != 0)
+		{
+			delete this->_bag[i];
+			this->_bag[i] = 0;
+		}
+		i++;
+	}
 	*this->_bag = rhs.getBag();
+	this->_name = rhs.getName();
 	return *this;
 }
 
