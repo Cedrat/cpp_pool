@@ -16,3 +16,10 @@ RadScorpion::~RadScorpion()
 {
 	std::cout <<  "* SPROTCH *" << std::endl;
 }
+
+RadScorpion &RadScorpion::operator=(RadScorpion const & rhs)
+{
+	this->_hp = rhs.getHP();
+	this->_type = rhs.getType();
+	return *this;
+}

@@ -5,7 +5,7 @@
 
 class AWeapon
 {
-	private :
+	protected :
 		std::string _name;
 		int			_apcost;
 		int			_damage;
@@ -21,7 +21,7 @@ class AWeapon
 		int 				getDamage() const;
 		virtual void		attack() const = 0;
 
-		AWeapon		&operator=(AWeapon const & rhs);
+		virtual AWeapon		&operator=(AWeapon const & rhs);
 };
 
 #endif

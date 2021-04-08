@@ -6,7 +6,7 @@
 
 class Enemy
 {
-	private :
+	protected :
 		int	_hp;
 		std::string _type;
 
@@ -19,7 +19,7 @@ class Enemy
 		int					getHP() const;
 		std::string const &	getType() const;
 		virtual void 		takeDamage(int);
-		Enemy	&operator=(Enemy const & rhs);
+		virtual Enemy	&operator=(Enemy const & rhs);
 };
 
 #endif

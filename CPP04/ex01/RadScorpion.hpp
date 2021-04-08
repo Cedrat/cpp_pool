@@ -11,6 +11,8 @@ class RadScorpion : virtual public Enemy
 		RadScorpion(void);
 		RadScorpion(RadScorpion const & src);
 		~RadScorpion();
+
+		virtual RadScorpion	&operator=(RadScorpion const & rhs);
 };
 
 #endif

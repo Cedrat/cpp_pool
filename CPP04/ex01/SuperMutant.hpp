@@ -13,6 +13,7 @@ class SuperMutant : virtual public Enemy
 		~SuperMutant();
 
 		virtual void	takeDamage(int damage);
+		virtual SuperMutant	&operator=(SuperMutant const & rhs);
 };
 
 #endif

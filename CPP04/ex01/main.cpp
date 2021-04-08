@@ -6,6 +6,8 @@
 #include "RadScorpion.hpp"
 #include "Character.hpp"
 #include "color.h"
+#include "AquaThrower.hpp"
+#include "Candle.hpp"
 
 int main()
 {
@@ -13,14 +15,24 @@ int main()
     
     Enemy* Scorpion = new RadScorpion();
     Enemy* SM = new SuperMutant();
-    
+    Enemy* Candle_1 = new Candle();
+    Enemy* Candle_2 = new Candle();
+    Enemy* Candle_3 = new Candle();
+
     AWeapon* pr = new PlasmaRifle();
     AWeapon* pf = new PowerFist();
+    AWeapon* at = new AquaThrower();
     
     Doomguy->attack(Scorpion);
     std::cout << *Doomguy << std::endl;
     Doomguy->equip(pr);
     std::cout << *Doomguy << std::endl;
+    Doomguy->attack(Scorpion);
+    std::cout << *Doomguy << std::endl;
+    Doomguy->equip(at);
+    Doomguy->attack(Candle_1);
+    Doomguy->attack(Candle_2);
+    Doomguy->attack(Candle_3);
     Doomguy->attack(Scorpion);
     std::cout << *Doomguy << std::endl;
 
@@ -40,7 +52,10 @@ int main()
     std::cout << *Doomguy << std::endl;
     Doomguy->equip(NULL);
     std::cout << *Doomguy << std::endl;
-    
+    *at = *pf;
+    Doomguy->equip(at);
+    std::cout << *Doomguy << std::endl;
+    Doomguy->equip(NULL);
     delete Doomguy;
     return (0);
 }

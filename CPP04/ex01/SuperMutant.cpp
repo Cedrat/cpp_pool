@@ -20,3 +20,10 @@ void SuperMutant::takeDamage(int damage)
 {
 	Enemy::takeDamage(damage - 3);
 }
+
+SuperMutant &SuperMutant::operator=(SuperMutant const & rhs)
+{
+	this->_hp = rhs.getHP();
+	this->_type = rhs.getType();
+	return *this;
+}
