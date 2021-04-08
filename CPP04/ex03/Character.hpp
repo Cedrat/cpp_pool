@@ -16,7 +16,7 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-class Character : virtual public ICharacter
+class Character : public ICharacter
 {
 	private : 
 		AMateria *_bag[4];

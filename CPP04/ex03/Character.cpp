@@ -17,8 +17,7 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(Character const & src)
 {
-	*this->_bag = *src._bag;
-	this->_name = src._name;
+	*this = src;
 }
 
 Character::~Character()

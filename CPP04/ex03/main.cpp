@@ -10,7 +10,7 @@ int main()
 {
     {
         std::cout << RED << "\nPERSONNAL MAIN" << RESET << std::endl;
-        ICharacter *me = new Character("Someone");
+        Character *me = new Character("Someone");
         AMateria *ball = new Ice();
         AMateria *ball3 = new Cure();
         IMateriaSource* src = new MateriaSource();
@@ -27,22 +27,24 @@ int main()
         
         std::cout << ball->getXP() << std::endl;
         *ball = *ball2;
+        src->learnMateria(ball3);
         src->learnMateria(ball);
-        ICharacter *fake_me = new Character(*me);
+        Character *fake_me = new Character(*me);
         fake_me->unequip(0);
         fake_me->unequip(1);
         fake_me->unequip(2);
         fake_me->unequip(3);
-        std::cout << "SEGFAULT" << std::endl; 
-        *me = *fake_me;
-        std::cout << "SEGFAULT" << std::endl;
         fake_me->equip(src->createMateria("ice"));
+        *ball3 = *ball2;
+        *me = *fake_me;
+        fake_me->equip(src->createMateria("cure"));
         fake_me->use(0, *me);
+        fake_me->use(1, *me);
         me->unequip(0);
         me->use(0, *me);
+        me->use(1, *me);
         delete me;
         delete fake_me;
-        //system("leaks a.out");
     }
     {
         std::cout << RED << "\nMAIN EXO" << RESET << std::endl;
@@ -61,7 +63,6 @@ int main()
         delete bob;
         delete moi;
         delete src;
-       // system("leaks a.out");
         return 0;
        
     }
