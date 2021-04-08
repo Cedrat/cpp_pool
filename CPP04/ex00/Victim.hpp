@@ -9,7 +9,7 @@ class Victim
     public :
         Victim(std::string name);
         Victim(const Victim&);
-        ~Victim();
+        virtual ~Victim();
 
         std::string     getName(void) const;
         std::string     getTitle(void) const;

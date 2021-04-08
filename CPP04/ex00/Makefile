@@ -1,5 +1,5 @@
 NAME = a.out
-SRCS = main.cpp Peon.cpp Sorcerer.cpp Victim.cpp
+SRCS = main.cpp Peon.cpp Sorcerer.cpp Victim.cpp Peasant.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
