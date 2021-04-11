@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "color.h"
 #include <stdexcept>
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) , _grade(grade)
 {
@@ -54,7 +55,7 @@ void Bureaucrat::downGrade(void)
 	}
 	else
 	{
-		_grade--;
+		_grade++;
 	}
 }
 
@@ -81,3 +82,4 @@ const char *	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return (RED"GradeTooLowException"RESET);
 }
+
