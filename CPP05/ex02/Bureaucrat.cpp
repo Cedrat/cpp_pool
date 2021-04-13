@@ -71,7 +71,7 @@ std::ostream & operator<<(std::ostream &o,const Bureaucrat &rhs)
 	return o;
 }
 
-void	Bureaucrat::signForm(Form  &form)
+void	Bureaucrat::signForm(AForm  &form)
 {
 	if (form.getSigninRank() >= this->getGrade() && form.getIsSigned() != 1)
 	{
@@ -83,6 +83,23 @@ void	Bureaucrat::signForm(Form  &form)
 	else
 		std::cout << PINK << this->getName() << RESET << " cant sign "BLUE << form.getName() << RESET << " because bureaucrat rank lower" << std::endl;
 
+}
+
+void	Bureaucrat::executeForm(AForm  &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << PINK << this->getName() << RESET << " execute "BLUE << form.getName() << RESET << " with success" << std::endl;
+	}
+	catch(AForm::GradeTooLowException const& e)
+	{
+		std::cout << PINK << this->getName() << RESET << " cant execute "BLUE << form.getName() << RESET << " because bureaucrat rank lower" << std::endl;
+	}
+	catch(AForm::FormNotSignedException const& e)
+	{
+		std::cout << PINK << this->getName() << RESET << " cant execute "BLUE << form.getName() << RESET << " because form not signed" << std::endl;
+	}
 }
 
 const char *	Bureaucrat::GradeTooHighException::what() const throw()

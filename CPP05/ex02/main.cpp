@@ -1,90 +1,35 @@
 #include "Bureaucrat.hpp"
 #include "color.h"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
+    AForm *shrubbery = new ShrubberyCreationForm("Yo");
+    AForm *robot = new RobotomyRequestForm("Napoleon");
+    AForm *pardon = new PresidentialPardonForm("End of the world");
+    Bureaucrat nobody("nobody", 75);
+    Bureaucrat someone("someone", 45);
+    Bureaucrat god("god", 1);
+    shrubbery->beSigned(nobody);
+    try
     {
-        Form *hello_world;
-        std::cout << "Form with signin rank 0 and exec rank 75" << std::endl;
-        try
-        {
-            hello_world = new Form("Hello World", 0, 75);
-        }
-        catch (Form::GradeTooHighException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-        catch (Form::GradeTooLowException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-
-        std::cout << "Form with signin rank 1 and exec rank 0" << std::endl;
-        try
-        {
-            hello_world = new Form("Hello World", 1, 0);
-        }
-        catch (Form::GradeTooHighException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-        catch (Form::GradeTooLowException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-
-        std::cout << "Form with signin rank 151 and exec rank 1" << std::endl;
-        try
-        {
-            hello_world = new Form("Hello World", 151, 1);
-        }
-        catch (Form::GradeTooHighException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-        catch (Form::GradeTooLowException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-
-        std::cout << "Form with signin rank 15 and exec rank 151" << std::endl;
-        try
-        {
-            hello_world = new Form("Hello World", 15, 151);
-        }
-        catch (Form::GradeTooHighException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-        catch (Form::GradeTooLowException const &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
+        shrubbery->execute(nobody);
     }
+    catch (AForm::FormNotSignedException const &e)
     {
-        Bureaucrat Remi("Rémi", 75);
-        std::cout << "\n" << Remi << std::endl;
-        Form hello_world("Hello World", 140, 150);
-        Form end_of_the_world("end of the world", 1 , 5);
-        hello_world.beSigned(Remi);
-        try
-        {
-            end_of_the_world.beSigned(Remi);
-        }
-        catch (Form::GradeTooLowException const& e)
-        {
-            std::cout << e.what() <<std::endl;
-        }
+        std::cout << e.what() << std::endl;
     }
+    catch (AForm::GradeTooLowException const &e)
     {
-        Bureaucrat Remi("Rémi", 75);
-        std::cout << "\n" << Remi << std::endl;
-        Form hello_world("Hello World", 140, 150);
-        Form end_of_the_world("end of the world", 1 , 5);
-        Remi.signForm(hello_world);
-        Remi.signForm(hello_world);
-        Remi.signForm(end_of_the_world);
-
+        std::cout << e.what() << std::endl;
     }
+    someone.signForm(*robot);
+    robot->execute(someone);
+    god.executeForm(*pardon);
+    god.signForm(*pardon);
+    someone.executeForm(*pardon);
+    god.executeForm(*pardon);
 }

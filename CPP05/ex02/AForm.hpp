@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <string>
 #include "Bureaucrat.hpp"
@@ -15,21 +15,27 @@ class AForm
 		int			_exec_rank;
 
 	public : 
-		Form(std::string const name, int signin_rank, int _exec_rank);
-		Form(Form const & src);
-		~Form();
+		AForm(std::string const name, int signin_rank, int _exec_rank);
+		AForm(AForm const & src);
+		~AForm();
 
 		bool			getIsSigned() const;
 		int				getSigninRank() const;
 		int				getExecRank() const;
 		std::string	const	getName() const;
 
+		void			copyName(AForm const & rhs);
+		void			copySigninRank(AForm const & rhs);
+		void			copyExecRank(AForm const & rhs);
+		void			copyIsSigned(AForm const &rhs);
+
+
 		virtual void 	execute (Bureaucrat const & executor) = 0;
 
 		void			signing(); 
 		void			beSigned(Bureaucrat const &signatory);
 
-		Form	&operator=(Form const & rhs);
+		AForm	&operator=(AForm const & rhs);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -41,8 +47,12 @@ class AForm
 		public : 
 			virtual const char* what() const throw();
 	};
+	class FormNotSignedException : public std::exception
+	{
+		public : 
+			virtual const char* what() const throw();
+	};
 };
 
-
-	std::ostream 	&operator<<(std::ostream &o, Form const & rhs);
+	std::ostream 	&operator<<(std::ostream &o, AForm const & rhs);
 #endif
