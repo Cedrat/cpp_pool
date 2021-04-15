@@ -3,6 +3,8 @@ SRCS = main.cpp Peon.cpp Sorcerer.cpp Victim.cpp Peasant.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
+CXX = clang++
+
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f

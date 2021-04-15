@@ -3,6 +3,8 @@ SRCS = main.cpp AWeapon.cpp PlasmaRifle.cpp PowerFist.cpp Enemy.cpp SuperMutant.
 
 OBJS = ${SRCS:.cpp=.o}
 
+CXX = clang
+
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f

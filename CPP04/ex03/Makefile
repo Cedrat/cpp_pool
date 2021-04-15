@@ -5,6 +5,8 @@ OBJS = ${SRCS:.cpp=.o}
 
 CFLAGS = -Wall -Wextra -Werror 
 
+CXX = clang++
+
 RM = rm -f
 
 all : 		${NAME}

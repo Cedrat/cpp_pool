@@ -11,17 +11,7 @@ Squad::Squad(ISquad const & src) : _count(0)
 {
 
 	*this = src;
-	// int i;
 
-	// std::cout << "Squad created !" << std::endl;
-	// i = 0;
-	// _ism = new ISpaceMarine*[src.getCount() + 1];
-	// _count = src.getCount();
-	// while (i < src.getCount())
-	// {
-	// 	_ism[i] = src.getUnit(i);
-	// 	i++;
-	// }
 }
 
 Squad::~Squad()
