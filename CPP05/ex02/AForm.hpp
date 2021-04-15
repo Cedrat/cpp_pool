@@ -17,7 +17,7 @@ class AForm
 	public : 
 		AForm(std::string const name, int signin_rank, int _exec_rank);
 		AForm(AForm const & src);
-		~AForm();
+		virtual ~AForm();
 
 		bool			getIsSigned() const;
 		int				getSigninRank() const;
