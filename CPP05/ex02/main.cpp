@@ -32,4 +32,7 @@ int main(void)
     god.signForm(*pardon);
     someone.executeForm(*pardon);
     god.executeForm(*pardon);
+    delete shrubbery;
+    delete robot;
+    delete pardon;
 }
