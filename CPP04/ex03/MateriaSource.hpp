@@ -17,7 +17,7 @@ class MateriaSource : public IMateriaSource
 	private :
 		AMateria *_source[4];
 
-	public : 
+	public :
 		MateriaSource(void);
 		MateriaSource(MateriaSource const & src);
 		~MateriaSource();

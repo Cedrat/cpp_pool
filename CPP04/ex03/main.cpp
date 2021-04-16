@@ -14,21 +14,21 @@ int main()
         AMateria *ball = new Ice();
         AMateria *ball3 = new Cure();
         IMateriaSource* src = new MateriaSource();
-        
+
         me->equip(ball);
         me->equip(ball3);
         me->unequip(2);
         me->use(0, *me);
-        
+
         AMateria *ball2 = new Ice(*ball);
         std::cout << ball->getXP() << std::endl;
         me->equip(ball2);
         me->use(1, *me);
-        
+
         std::cout << ball->getXP() << std::endl;
         *ball = *ball2;
-        src->learnMateria(ball3);
-        src->learnMateria(ball);
+        src->learnMateria(new Cure(*ball3));
+        src->learnMateria(new Ice(*ball));
         Character *fake_me = new Character(*me);
         fake_me->unequip(0);
         fake_me->unequip(1);
@@ -43,10 +43,11 @@ int main()
         me->unequip(0);
         me->use(0, *me);
         me->use(1, *me);
+		delete src;
         delete me;
         delete fake_me;
     }
-    {
+     {
         std::cout << RED << "\nMAIN EXO" << RESET << std::endl;
         IMateriaSource* src = new MateriaSource();
         src->learnMateria(new Ice());
@@ -64,7 +65,7 @@ int main()
         delete moi;
         delete src;
         return 0;
-       
+
     }
 
 

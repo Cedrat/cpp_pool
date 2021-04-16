@@ -7,6 +7,7 @@ MateriaSource::MateriaSource(void)
 	int i;
 
 	i = 0;
+	// _ism = new ISpaceMarine*[rhs.getCount() + 1];
 	while (i < 4)
 	{
 		_source[i] = 0;
@@ -21,7 +22,15 @@ MateriaSource::MateriaSource(MateriaSource const & src)
 
 MateriaSource::~MateriaSource()
 {
+	int i;
 
+	i = 0;
+	while (i < 4)
+	{
+		if (_source[i] != 0)
+			delete _source[i];
+		i++;
+	}
 }
 
 void MateriaSource::learnMateria(AMateria* materia)
@@ -33,7 +42,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 	{
 		if (_source[i] == 0)
 		{
-			_source[i] = materia->clone();
+			_source[i] = materia;
 			return ;
 		}
 		i++;
@@ -54,8 +63,8 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 		}
 		else if (_source[i] && _source[i]->getType() == "cure" && "cure" == type)
 		{
-			AMateria *copy = new Cure(*_source[i]);
-			return copy;
+			//AMateria *copy = new Cure(*_source[i]);
+			return _source[i]->clone();
 		}
 		i++;
 	}
@@ -83,4 +92,3 @@ MateriaSource &MateriaSource::operator=(MateriaSource const & rhs)
 	*this->_source = rhs.getSource();
 	return *this;
 }
-

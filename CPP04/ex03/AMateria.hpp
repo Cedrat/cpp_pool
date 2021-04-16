@@ -13,12 +13,13 @@ class AMateria
 		std::string 			_type;
 		unsigned int			_xp;
 
-	public : 
+	public :
 		AMateria(std::string const & type);
 		AMateria(AMateria const & src);
 		virtual ~AMateria();
 
 		std::string const &		getType() const;
+		void setType(std::string);
 		unsigned int const &	getXP() const;
 		void			giveXP();
 

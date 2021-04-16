@@ -20,6 +20,11 @@ std::string const &	AMateria::getType() const
 	return (this->_type);
 }
 
+void 	AMateria::setType(std::string type)
+{
+	this->_type = type;
+}
+
 unsigned int const &	AMateria::getXP() const
 {
 	return (this->_xp);
@@ -34,7 +39,6 @@ AMateria &AMateria::operator=(AMateria const & rhs)
 {
 	this->_xp = rhs.getXP();
 	this->_type = rhs.getType();
-	
+
 	return *this;
 }
-

@@ -21,12 +21,13 @@ Squad::~Squad()
 	i = 0;
 	while (i < _count)
 	{
-		delete _ism[i];
+		if (_ism[i] != NULL)
+			delete _ism[i];
 		i++;
 	}
-	if (i != 0)
-	 	delete [] _ism;
 	_count = 0;
+	 if (i != 0)
+		delete [] _ism;
 }
 
 int	Squad::push(ISpaceMarine* ism)
@@ -69,12 +70,17 @@ int	Squad::getCount() const
 	return (this->_count);
 }
 
+void	 Squad::setCount(int nb)
+{
+	this->_count = nb;
+}
+
 ISpaceMarine*	Squad::getUnit(int nb) const
 {
 	return (_ism[nb]);
 }
 
-ISquad &Squad::operator=(ISquad const & rhs)
+Squad &Squad::operator=(Squad const & rhs)
 {
 	int i;
 

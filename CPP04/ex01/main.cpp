@@ -12,7 +12,7 @@
 int main()
 {
     Character* Doomguy = new Character("The Doom Slayer");
-    
+
     Enemy* Scorpion = new RadScorpion();
     Enemy* SM = new SuperMutant();
     Enemy* Candle_1 = new Candle();
@@ -22,7 +22,7 @@ int main()
     AWeapon* pr = new PlasmaRifle();
     AWeapon* pf = new PowerFist();
     AWeapon* at = new AquaThrower();
-    
+
     Doomguy->attack(Scorpion);
     std::cout << *Doomguy << std::endl;
     Doomguy->equip(pr);
@@ -39,7 +39,7 @@ int main()
     Doomguy->equip(pf);
     Doomguy->attack(Scorpion);
     Doomguy->attack(Scorpion);
-    
+
     std::cout << *Doomguy << std::endl;
     Doomguy->attack(SM);
     std::cout << "The enemy has " << GREEN << SM->getHP() << " HP" << RESET << std::endl;
@@ -56,6 +56,10 @@ int main()
     Doomguy->equip(at);
     std::cout << *Doomguy << std::endl;
     Doomguy->equip(NULL);
+	delete at;
+	delete pf;
+	delete pr;
+	delete SM;
     delete Doomguy;
     return (0);
 }

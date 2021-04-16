@@ -3,7 +3,7 @@ SRCS = main.cpp TacticalMarine.cpp Squad.cpp AssaultTerminator.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g
 
 CXX = clang++
 

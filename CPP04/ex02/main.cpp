@@ -18,12 +18,12 @@ int main(void)
     ISpaceMarine* sm_7= sm_6->clone();
     ISpaceMarine* sm_8 = sm_7->clone();
 
-    ISquad* squad_0 = new Squad;
-	ISquad* squad_1 = new Squad;
+    Squad* squad_0 = new Squad;
+	Squad* squad_1 = new Squad;
     squad_1->push(sm_1);
     squad_1->push(sm_2);
     squad_1->push(sm_3);
-	ISquad* squad_2 = new Squad(*squad_1);
+	Squad* squad_2 = new Squad;
     std::cout << squad_1->getCount() << std::endl;
     squad_2->push(sm_4);
     squad_2->push(sm_5);

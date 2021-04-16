@@ -10,13 +10,21 @@ Character::Character(std::string name) : _name(name)
 	i = 0;
 	while (i < 4)
 	{
-		_bag[i] = 0;
+		_bag[i] = NULL;
 		i++;
 	}
 }
 
 Character::Character(Character const & src)
 {
+	int i;
+
+	i = 0;
+	while (i < 4)
+	{
+		_bag[i] = NULL;
+		i++;
+	}
 	*this = src;
 }
 
@@ -116,4 +124,3 @@ Character &Character::operator=(Character const & rhs)
 	this->_name = rhs.getName();
 	return *this;
 }
-
