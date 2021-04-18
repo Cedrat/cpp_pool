@@ -3,11 +3,17 @@ SRCS = main.cpp Bureaucrat.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
+
+
 CXX= clang++
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize
+CFLAGS = -Wall -Wextra -Werror
+
 
 RM = rm -f
+
+%.o : %.cpp
+	$(CXX) -c $(CFLAGS) -std=c++98 $< -o $@
 
 all : 		${NAME}
 

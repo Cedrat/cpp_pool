@@ -56,7 +56,7 @@ void			Form::signing()
 
 std::ostream &operator<<(std::ostream &o, Form const & rhs)
 {
-	o << "The Form "PINK << rhs.getName() << RESET" is signed ? ("RED <<  rhs.getIsSigned() << RESET
+	o << "The form "PINK << rhs.getName() << RESET" is signed ? ("RED <<  rhs.getIsSigned() << RESET
 	"). We need a bureaucrat rank "BLUE << rhs.getSigninRank() << RESET" for signin this and a bureaucrat rank "GREEN << rhs.getExecRank()
 	 <<RESET " for exec this.";
 	return (o);
