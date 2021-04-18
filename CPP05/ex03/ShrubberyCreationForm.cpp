@@ -24,7 +24,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 	if (executor.getGrade() <= this->getExecRank() && this->getIsSigned() == 1)
 	{
 		std::ofstream file;
-		file.open(this->getName()+"_Shruberry");
+		file.open((this->getName()+"_Shruberry").c_str());
 		file <<"           ,@@@@@@@," << std::endl;
 		file <<"   ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl;
 		file <<",&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl;
@@ -56,4 +56,3 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	this->copyExecRank(rhs);
 	return *this;
 }
-
