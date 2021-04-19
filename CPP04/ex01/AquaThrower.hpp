@@ -7,10 +7,10 @@
 
 class AquaThrower : public AWeapon
 {
-	public : 
+	public :
 		AquaThrower(void);
 		AquaThrower(AWeapon const & src);
-		~AquaThrower();
+		virtual ~AquaThrower();
 
 		virtual void		attack() const;
 		AquaThrower	&operator=(AquaThrower const & rhs);

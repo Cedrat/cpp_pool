@@ -7,10 +7,10 @@
 
 class Cure : public AMateria
 {
-	public : 
+	public :
 		Cure(void);
 		Cure(AMateria const & src);
-		~Cure();
+		virtual ~Cure();
 
 		AMateria*	clone() const;
 		void	use(ICharacter& target);

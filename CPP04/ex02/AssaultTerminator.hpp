@@ -6,10 +6,10 @@
 class AssaultTerminator : virtual public ISpaceMarine
 
 {
-	public : 
+	public :
 		AssaultTerminator(void);
 		AssaultTerminator(AssaultTerminator const & src);
-		~AssaultTerminator();
+		virtual ~AssaultTerminator();
 
 		virtual AssaultTerminator* clone() const;
 		virtual void battleCry() const;

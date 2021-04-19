@@ -7,10 +7,10 @@
 
 class Candle : virtual public Enemy
 {
-	public : 
+	public :
 		Candle(void);
 		Candle(Candle const & src);
-		~Candle();
+		virtual ~Candle();
 
 		virtual void	takeDamage(int damage);
 		virtual Candle	&operator=(Candle const & rhs);

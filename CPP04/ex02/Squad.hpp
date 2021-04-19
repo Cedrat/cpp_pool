@@ -15,7 +15,7 @@ class Squad : virtual public ISquad
 	public :
 		Squad(void);
 		Squad(ISquad const & src);
-		~Squad();
+		virtual ~Squad();
 
 		virtual int	getCount(void) const;
 		void		setCount(int);

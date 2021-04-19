@@ -6,10 +6,10 @@
 
 class TacticalMarine : virtual public ISpaceMarine
 {
-	public : 
+	public :
 		TacticalMarine(void);
 		TacticalMarine(TacticalMarine const & src);
-		~TacticalMarine();
+		virtual ~TacticalMarine();
 
 		virtual TacticalMarine* clone() const;
 		virtual void battleCry() const;
