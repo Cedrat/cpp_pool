@@ -9,6 +9,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
+%.o : %.cpp
+	$(CXX) -c $(CFLAGS) -std=c++98 $< -o $@
+
+
 all : 		${NAME}
 
 ${NAME}:	${OBJS}
