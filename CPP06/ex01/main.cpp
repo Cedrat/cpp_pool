@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #pragma pack(1)
-
 typedef struct s_data{
     std::string part1;
     int nb;
@@ -17,10 +16,10 @@ std::string random_name()
     i = 0;
     while (i < 8)
     {
-        random[i] += keyboard[std::rand()%26];
+        random += keyboard[rand()%26];
         i++;
     }
-    return (&random[0]);
+    return (random);
 
 }
 void *serialize(void)
@@ -29,7 +28,7 @@ void *serialize(void)
     t_data *data = new t_data;
     
     data->part1 = random_name();
-    data->nb = std::rand();
+    data->nb = rand();
     data->part2 = random_name();
 
     void_p = reinterpret_cast<void*>(data);
@@ -48,7 +47,7 @@ int main()
     void *seria;
     t_data *data;
 
-    std::srand(time(0));
+    srand(time(0));
     seria = serialize();
     data = deserialize(seria);
  
@@ -56,4 +55,5 @@ int main()
     std::cout << data->nb << std::endl;
     std::cout << data->part2 << std::endl;
     std::cout << sizeof(*data) << std::endl;
+    delete data;
 }

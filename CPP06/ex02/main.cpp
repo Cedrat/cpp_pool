@@ -28,7 +28,7 @@ Base * generate(void)
     tab[2] = &create_C;
 
     Base *base;
-    base = tab[std::rand()%3]();
+    base = tab[rand()%3]();
     return base;
 }
 
@@ -55,27 +55,27 @@ void identify_from_reference(Base &p)
         p = dynamic_cast<A &>(p);
         std::cout << "Base is A !!!" << std::endl;
     }
-    catch(std::bad_cast &bc)
+    catch(bad_cast &bc)
     {}
     try 
     {
         p = dynamic_cast<B &>(p);
         std::cout << "Base is B !!!" << std::endl;
     }
-    catch(std::bad_cast &bc)
+    catch(bad_cast &bc)
     {}
     try 
     {
         p = dynamic_cast<C &>(p);
         std::cout << "Base is C !!!" << std::endl;
     }
-    catch(std::bad_cast &bc)
+    catch(bad_cast &bc)
     {}
 }
 
 int main()
 {
-    std::srand(time(0));
+    srand(time(0));
     Base *base = generate();
     std::cout << "identification from pointer" << std::endl;
     identify_from_pointer(base);

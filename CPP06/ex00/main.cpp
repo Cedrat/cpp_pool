@@ -3,11 +3,25 @@
 #include <cmath>
 #include <climits>
 #include <cfloat>
+#include <cstdlib>
+#include <cstdio>
 
+int ft_strlen(char *str)
+{
+	int i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 double conv_str_in_db(std::string str)
 {
     double doubly;
-    doubly = std::stod(str);
+    char *ERR;
+    doubly = std::strtof(str.c_str(),&ERR);
+    if (ERR == str || (ft_strlen(ERR)!= 0 && !((ft_strlen(ERR)== 1) && ERR[0] ==  'f'))) 
+    {
+	throw std::invalid_argument("IMPOSSIBLE");
+    }
     return (doubly);
 }
 
@@ -27,14 +41,13 @@ void c_print_char(double doubly)
 
 void c_print_float(float doubly)
 {
-    if ((doubly != static_cast<float>(doubly) || static_cast<float>(doubly) == INFINITY 
-                                                || static_cast<float>(doubly) == -INFINITY) && doubly == doubly)
+    if ((doubly != static_cast<float>(doubly) && doubly == doubly))
     {
         std::cout << "float : impossible" << std::endl;
         return ;
     }
     float floaty = static_cast<float>(doubly);
-    if (((std::roundf(floaty) == floaty) || std::ceilf(floaty) == floaty) && floaty != INFINITY && floaty != -INFINITY)
+    if (floaty == static_cast<long>(floaty) && floaty != INFINITY && floaty != -INFINITY)
         std::cout << "float : " << floaty << ".0f" << std::endl;
     else
         std::cout << "float : " << floaty << "f" << std::endl;
@@ -52,7 +65,7 @@ void c_print_int(float doubly)
 }
 void c_print_double(double db)
 {
-    if (std::roundf(db) == db && db != INFINITY && db != -INFINITY)
+    if (roundf(db) == db && db != INFINITY && db != -INFINITY)
         std::cout << "double : " << db << ".0" << std::endl;
     else
         std::cout << "double : " << db <<  std::endl;
