@@ -5,7 +5,7 @@ OBJS = ${SRCS:.cpp=.o}
 
 CXX= clang++
 
-CFLAGS =  -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
