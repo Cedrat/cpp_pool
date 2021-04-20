@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Base.hpp"
 #include <cstdlib>
-#include <typeinfo>
 
 Base *create_A(void)
 {
@@ -57,21 +56,21 @@ void identify_from_reference(Base &p)
         p = dynamic_cast<A &>(p);
         std::cout << "Base is A !!!" << std::endl;
     }
-    catch(std::bad_cast &bc)
+    catch(std::exception &e)
     {}
     try
     {
         p = dynamic_cast<B &>(p);
         std::cout << "Base is B !!!" << std::endl;
     }
-    catch(std::bad_cast &bc)
+    catch(std::exception &e)
     {}
     try
     {
         p = dynamic_cast<C &>(p);
         std::cout << "Base is C !!!" << std::endl;
     }
-    catch(std::bad_cast &bc)
+    catch(std::exception &e)
     {}
 }
 
