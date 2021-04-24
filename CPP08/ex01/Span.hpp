@@ -17,23 +17,25 @@ class Span
         void            addNumber(int nb);
         Span & operator=(Span const &rhs);
 
+        class NotEnoughSpaceException : public std::exception
+        {
+            public : 
+                virtual const char* what() const throw();
+        };
+
+        class NotEnoughNumberException : public std::exception
+        {
+            public : 
+                virtual const char* what() const throw();
+        };
+
     private : 
         std::vector <int> _array;
         unsigned int _size;
         unsigned int _nb_actual;
         bool _sorted;
 
-    class NotEnoughSpaceException : public std::exception
-    {
-        public : 
-			virtual const char* what() const throw();
-    };
 
-    class NotEnoughNumberException : public std::exception
-    {
-        public : 
-			virtual const char* what() const throw();
-    };
 };
 
 #endif

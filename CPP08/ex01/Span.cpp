@@ -66,6 +66,9 @@ void            Span::addNumber(int nb)
 Span &          Span::operator=(Span const &rhs)
 {
     this->_size = rhs._size;
+    this->_nb_actual = rhs._nb_actual;
+    this->_sorted = rhs._sorted;
+    this->_array = rhs._array;
     return (*this);
 }
 
