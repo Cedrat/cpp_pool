@@ -1,36 +1,21 @@
 #include <string>
 #include <iostream>
+#include "iter.hpp"
 
 template<typename T>
-void iter(T *array, int size_array, void (f)(T *))
+void show_square(T & i)
 {
-    for (int i = 0 ; i < size_array; i++)
-    {
-        f(&array[i]);
-    };
+    std::cout << (i)*(i) << std::endl;
 }
-
 template<typename T>
-void divide_by_two(T  *nb)
+void show_opposite(T  &word)
 {
-    *nb /= 2;
-}
+    int size = word.size();
 
-template<typename T>
-void show_square(T *i)
-{
-    std::cout << (*i)*(*i) << std::endl;
-}
-
-void show_opposite(std::string *word)
-{
-    int size = word->size();
-
-    std::string deference = *word;
     std::string reverse;
     while (size >= 0)
     {
-        reverse += deference[size];
+        reverse += word[size];
         size--;
     }
     std::cout << reverse << std::endl;
@@ -46,12 +31,7 @@ int main()
     std::string word[] = {"nos", "mon", "les", "retartiner" , "trop" , "super", "eniripsa", "amuser"};
     iter<std::string>(word, 8, show_opposite);
 
-    std::cout << "\nshow the square of the half tenth first numbers [int]" << std::endl;
-    iter<int>(integer, 10, divide_by_two<int>);
-    iter<int>(integer, 10, show_square);
-
-    std::cout << "\nshow the square of the half tenth first numbers [float]" << std::endl;
-    float floaty[] = {1,2,3,4,5,6,7,8,9,10};
-    iter<float>(floaty, 10, divide_by_two<float>);
+    std::cout << "\nshow the square of ten float numbers [float]" << std::endl;
+    float floaty[] = {1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5};
     iter<float>(floaty, 10, show_square);
 }
