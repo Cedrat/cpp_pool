@@ -6,17 +6,27 @@
 #include <string>
 #include <deque>
 #include <iterator>
+#include <list>
 
 template <typename T>
-class MutantStack : public std::stack<T>
+class MutantStack : public std::stack<T> 
 {
+
+    
     public :
+        typedef typename std::stack<T>::container_type::iterator iterator;
+        
+        iterator begin(){return this->c.begin();};
+        iterator end(){return this->c.end();};
 
-    class iterator : public std::iterator<std::input_iterator_tag, int>
-    {
-    };
+        MutantStack(){};
+        MutantStack(T const & rhs) {this->c = rhs->c;}
+        ~MutantStack(){};
 
-    iterator begin() {return std::begin(*this);}
+        MutantStack & operator=(MutantStack const & rhs)
+        {
+            this->c = rhs->c;
+        }
 
 };
 
