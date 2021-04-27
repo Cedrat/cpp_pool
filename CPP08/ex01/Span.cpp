@@ -1,7 +1,7 @@
 #include "Span.hpp"
 
 #include <iostream>
-
+#include <climits>
 Span::Span(unsigned int N) : _size(N), _nb_actual(0), _sorted(0)
 {
 }
