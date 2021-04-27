@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "Array.hpp"
-#include<array>
 
 template<typename T>
 void    print_tab(T const & rhs, unsigned int size)
