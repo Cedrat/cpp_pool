@@ -39,10 +39,8 @@ int main()
         std::cout << cuillere.longestSpan() << std::endl;
     }
 
-            Span cuillere(3);
+        Span cuillere(3);
         cuillere.addNumber(6);
-        // cuillere.addNumber(6);
-        // cuillere.addNumber(8);
 
         try
         {
@@ -52,4 +50,11 @@ int main()
         {
             std::cout << e.what() << std::endl;
         }
+
+        Span passoire(10);
+        int array_int[] = {10, 4 , 6, 32 , 245 , 23, 60, 594, 123, 28};
+
+        passoire.addNArray(array_int, 10);
+        std::cout << passoire.shortestSpan() << std::endl;
+        std::cout << passoire.longestSpan() << std::endl;
 }

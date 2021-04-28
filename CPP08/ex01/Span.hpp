@@ -15,6 +15,7 @@ class Span
         int             shortestSpan();
         int             longestSpan();
         void            addNumber(int nb);
+        void            addNArray(int *array, size_t size);
         Span & operator=(Span const &rhs);
 
         class NotEnoughSpaceException : public std::exception

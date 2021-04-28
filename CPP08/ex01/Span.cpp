@@ -63,6 +63,20 @@ void            Span::addNumber(int nb)
     }
 }
 
+void            Span::addNArray(int *array, size_t size)
+{
+    std::vector<int>::iterator it = this->_array.begin();
+    if ((_nb_actual + size) <= _size)
+    {
+        this->_array.insert(it , array , array + size);
+        _nb_actual += size;
+    }
+    else
+    {
+        throw(Span::NotEnoughSpaceException());
+    }
+}
+
 Span &          Span::operator=(Span const &rhs)
 {
     this->_size = rhs._size;
