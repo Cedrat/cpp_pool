@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 int shifumi()
 {
@@ -69,7 +70,8 @@ int head_or_tail(void)
             if (win == 0)
                 std::cout << "The piece lands on \033[1;4mHEAD\033[0m, you lose" << std::endl;
             else if (win == 1)
-                std::cout << "The piece lands on \033[1;4mTAIL\033[0m, you win" << std::endl;            break;
+                std::cout << "The piece lands on \033[1;4mTAIL\033[0m, you win" << std::endl;            
+            break;
         }
     }
     return(win);
