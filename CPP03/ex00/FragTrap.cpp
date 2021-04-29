@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include <cstdlib>
 
 FragTrap::FragTrap(std::string name) : _name(name), _hit_points(100), _max_hit_points(100), 
     _energy_points(100), _max_energy_points(100), _level(1), _melee_attack_damage(30),
